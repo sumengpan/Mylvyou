@@ -9,7 +9,7 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>web01</module>
+    <module>lvyou</module>
       <module>lvyou</module>
   </modules>
 
@@ -24,6 +24,7 @@
   </properties>
 
   <dependencies>
+    <!-- junit-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
