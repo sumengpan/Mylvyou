@@ -10,9 +10,9 @@ public class TestCategoryService {
     public void test01(){
         //创建业务对象
         CategoryService categoryService=new CategoryService();
-        //所有的分类
+        //显示所有的分类
         List<Category> categoryList=categoryService.findAll();
-        //显示
+        //打印出来
         System.out.println(categoryList);
 
     }

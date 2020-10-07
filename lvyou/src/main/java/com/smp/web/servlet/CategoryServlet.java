@@ -37,8 +37,9 @@ public class CategoryServlet extends HttpServlet {
             CategoryService categoryService = new CategoryService();
             //所有的分类
             List<Category> categoryList=categoryService.findAll();
-            //显示
+            //显示在页面
             ResponseInfo info = new ResponseInfo();
+            //调用
             info.setCode(200);
             info.setData(categoryList);
             json = new ObjectMapper().writeValueAsString(info);

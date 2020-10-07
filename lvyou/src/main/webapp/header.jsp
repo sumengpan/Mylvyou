@@ -76,8 +76,6 @@
 <!-- 首页导航 -->
 
 
-
-
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
@@ -87,7 +85,7 @@
             function (data) { //这个data就是服务器返回的字符串
                 if (data.code == 200) {
                     var list = data.data;
-                    //定义一个变量，拼接导航的显示内容  li
+                    //定义一个变量，拼接导航的显示内容
                     var lis = "";
                     //拼接第一项
                     lis += '<li class="nav-active"><a href="index.jsp">首页</a></li>'
