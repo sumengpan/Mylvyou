@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-${msg}您已激活，请返回登录
+${msg}您已激活，请返回<a href="login.jsp">登录</a>
 </body>
 </html>

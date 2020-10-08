@@ -11,7 +11,7 @@ public class PageBean {
     private  int totalPage;
     //当前页
     private  int currentPage;
-    //当前页数据
+    //当前页的数据
     private List<Route> list;
 
     @Override
@@ -64,6 +64,26 @@ public class PageBean {
     public void setList(List<Route> list) {
         this.list = list;
     }
+
+    public PageBean count(int totalCount) {
+        //设置总记录数
+        this.setTotalCount(totalCount);
+
+        //设置总页数  每页最多只能放20条   40  2  与 41  3
+        //在java中，整数相除只保留整数部，丢失小数部  41/20  就是2
+        int totalPage = totalCount % pageSize == 0 ?
+                totalCount / pageSize : totalCount / pageSize + 1;
+        this.setTotalPage(totalPage);
+        return this;
+    }
+
+    public PageBean list(List<Route> list) {
+        this.list = list;
+        return this;
+    }
+
+
+
 }
 
 

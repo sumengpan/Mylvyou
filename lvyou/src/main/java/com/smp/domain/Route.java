@@ -1,6 +1,7 @@
 package com.smp.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 //旅游路线
 public class Route implements Serializable {
@@ -17,6 +18,39 @@ public class Route implements Serializable {
     private String rimage;//缩略图
     private int sid;//所属商家
     private String sourceId;//抓取数据的来源id
+
+    //分类   一对一
+    private Category category;
+    //商家   一对一
+    private Seller seller;
+    //图片   一对多
+    private List<RouteImg> imgList;
+
+
+    //get set方法
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+    public List<RouteImg> getImgList() {
+        return imgList;
+    }
+
+    public void setImgList(List<RouteImg> imgList) {
+        this.imgList = imgList;
+    }
 
     @Override
     public String toString() {

@@ -5,11 +5,11 @@ public class ResponseInfo {
     private int code;
     private Object data;
 
-    //空
+    //无参
     public ResponseInfo() {
     }
 
-    //全
+    //全参
     public ResponseInfo(int code, Object data) {
         this.code = code;
         this.data = data;

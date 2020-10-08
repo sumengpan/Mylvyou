@@ -14,10 +14,10 @@ public class User {
     private char status;
     private String code;
 
-
+    //无参
     public User() {
     }
-
+    //全参
     public User(int uid, String username, String password, Date birthday, String name,
                 String sex, String telephone, String email, char status, String code) {
         this.uid = uid;

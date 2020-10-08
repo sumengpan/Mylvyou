@@ -27,5 +27,7 @@
         <mapper resource="UserDao.xml"/>
         <mapper resource="CategoryDao.xml"/>
         <mapper resource="RouteDao.xml"/>
+        <mapper resource="SellerDao.xml"/>
+        <mapper resource="RouteImgDao.xml"/>
     </mappers>
 </configuration>

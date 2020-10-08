@@ -8,4 +8,10 @@
         select * from tab_category order by cid asc;
     </select>
 
+<!--    //select * from tab_category c where c.cid=1;-->
+<!--    Category findOneByCid(int cid);-->
+    <select id="findOneByCid" resultType="category" parameterType="int">
+        select * from tab_category c where c.cid=#{cid};
+    </select>
+
 </mapper>

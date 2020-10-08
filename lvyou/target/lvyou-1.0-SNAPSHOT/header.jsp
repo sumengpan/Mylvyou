@@ -14,22 +14,27 @@
     </div>
     <div class="shortcut">
         <!-- 未登录状态  -->
-        <div class="login_out">
-            <a href="login.jsp">登录</a>
-            <a href="register.jsp">注册</a>
-        </div>
+<%--        <div class="login_out">--%>
+<%--&lt;%&ndash;            <a href="login.jsp">登录</a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;            <a href="register.jsp">注册</a>&ndash;%&gt;--%>
+
+
+<%--        </div>--%>
         <!-- 登录状态  -->
         <div class="login">
             <%--             将session中的用户数据取出来 --%>
             <%--            判断用户对象是否为空  如果是提示请登录，否则显示用户信息--%>
-            <c:if test="${user != null}">
-                <span>欢迎，${user.name}</span>
-            </c:if>
-            <c:if test="${user == null}">
-                <span>您未登录，请登录</span>
-            </c:if>
-            <a href="myfavorite.html" class="collection">我的收藏</a>
-            <a href="${pageContext.request.contextPath}/loginOutServlet">退出</a>
+                <c:if test="${user != null}">
+                    <span>欢迎，${user.name}</span>
+                </c:if>
+                <c:if test="${user == null}">
+                    <a href="login.jsp">请登录</a>
+                    <%--                <span></span>--%>
+                    <a>|</a>
+                </c:if>
+                <a href="register.jsp">注册</a>
+                <a href="myfavorite.html" class="collection">我的收藏</a>
+                <a href="${pageContext.request.contextPath}/loginOutServlet">退出</a>
         </div>
     </div>
 
@@ -76,8 +81,6 @@
 <!-- 首页导航 -->
 
 
-
-
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
@@ -87,7 +90,7 @@
             function (data) { //这个data就是服务器返回的字符串
                 if (data.code == 200) {
                     var list = data.data;
-                    //定义一个变量，拼接导航的显示内容  li
+                    //定义一个变量，拼接导航的显示内容
                     var lis = "";
                     //拼接第一项
                     lis += '<li class="nav-active"><a href="index.jsp">首页</a></li>'

@@ -14,22 +14,27 @@
     </div>
     <div class="shortcut">
         <!-- 未登录状态  -->
-        <div class="login_out">
-            <a href="login.jsp">登录</a>
-            <a href="register.jsp">注册</a>
-        </div>
+<%--        <div class="login_out">--%>
+<%--&lt;%&ndash;            <a href="login.jsp">登录</a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;            <a href="register.jsp">注册</a>&ndash;%&gt;--%>
+
+
+<%--        </div>--%>
         <!-- 登录状态  -->
         <div class="login">
             <%--             将session中的用户数据取出来 --%>
             <%--            判断用户对象是否为空  如果是提示请登录，否则显示用户信息--%>
-            <c:if test="${user != null}">
-                <span>欢迎，${user.name}</span>
-            </c:if>
-            <c:if test="${user == null}">
-                <span>您未登录，请登录</span>
-            </c:if>
-            <a href="myfavorite.html" class="collection">我的收藏</a>
-            <a href="${pageContext.request.contextPath}/loginOutServlet">退出</a>
+                <c:if test="${user != null}">
+                    <span>欢迎，${user.name}</span>
+                </c:if>
+                <c:if test="${user == null}">
+                    <a href="login.jsp">请登录</a>
+                    <%--                <span></span>--%>
+                    <a>|</a>
+                </c:if>
+                <a href="register.jsp">注册</a>
+                <a href="myfavorite.html" class="collection">我的收藏</a>
+                <a href="${pageContext.request.contextPath}/loginOutServlet">退出</a>
         </div>
     </div>
 

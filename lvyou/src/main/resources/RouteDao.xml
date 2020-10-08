@@ -5,12 +5,47 @@
 <mapper namespace="com.smp.dao.RouteDao">
 
     <select id="findCountByName" parameterType="string" resultType="int">
-        select count(*) from tab_route where rname like #{keyword};
+        select count(*) from tab_route
     </select>
 
 <!--    //select * from tab_route where rname like '%长沙%' limit 0,20-->
 <!--    List<Route> findPageByName(String keyword,int start ,int pageSize);-->
     <select id="findPageByName" resultType="route">
-        select * from tab_route where rname like #{arg0} limit #{arg1},#{arg2};
+        select * from tab_route limit #{arg1},#{arg2};
     </select>
+
+<!--    //根据id查找路线-->
+<!--    //select count(*) from tab_route where cid=1;-->
+<!--    int findCountByCid(int cid);-->
+    <select id="findCountByCid" parameterType="int" resultType="int">
+        select count(*) from tab_route where cid=#{cid};
+    </select>
+
+<!--    //根据id查找路线并进行分组-->
+<!--    //select * from tab_route where cid=5 limit 40,20;-->
+<!--    List<Route> findPageByCid(int cid, int start, int pageSize);-->
+    <select id="findPageByCid" resultType="route">
+        select * from tab_route where cid=#{arg0} limit #{arg1},#{arg2};
+    </select>
+
+    <!--    //select * from tab_route r where r.rid = 1;-->
+    <!--    Route findOneByRid(int rid);-->
+    <select id="findOneByRid1" parameterType="int" resultType="route">
+        select * from tab_route r where r.rid =#{rid};
+    </select>
+
+    <select id="findOneByRid" parameterType="int" resultMap="routeMap">
+        select * from tab_route r where r.rid =#{rid};
+    </select>
+    <!--    要对当前这个route内部的其他的成员变量进行查询与赋值
+    select 指定接口方法使用到的语句
+    property指定需要查询的数据
+    column 指定select方法需要的参数
+    select 指定需要调用的dao方法
+    -->
+    <resultMap id="routeMap" type="route" autoMapping="true">
+        <association property="category" column="cid" select="com.smp.dao.CategoryDao.findOneByCid"  autoMapping="true" fetchType="eager"/>
+        <association property="seller" column="sid" select="com.smp.dao.SellerDao.findOneBySid"  autoMapping="true" fetchType="eager"/>
+        <collection property="imgList" column="rid"  select="com.smp.dao.RouteImgDao.findAllImgByRid"   autoMapping="true" fetchType="eager" />
+    </resultMap>
 </mapper>

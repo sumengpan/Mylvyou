@@ -86,29 +86,22 @@ h1, h2, h3, h4, h5, h6 {
     height: 50px;
 }
 
-.login_out, .login {  
-    height: 50px;
-    line-height: 36px;
-    float: right;
-}
-
 .login {
-    width: 205px;
-    font-size: 12px;
+    font-size: 13px;
 }
 .login a{
-    font-size: 12px;
+    font-size: 13px;
     color: #a1a1a1;
 }
 .login .collection {
     color: #ff7676;
     margin: 0 16px 0 10px;
 }
-.login_out a {
-    color: #000;
-    font-size: 12px;
-    margin: 0 10px;
-}
+/*.login_out a {*/
+/*    color: #000;*/
+/*    font-size: 13px;*/
+/*    margin: 0 10px;*/
+/*}*/
 
 .header_wrap {
     widows: 100%;
