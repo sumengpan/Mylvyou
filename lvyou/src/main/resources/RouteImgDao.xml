@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smp.dao.RouteImgDao">
+
+<!--    //根据路线图片的id查找所有-->
+<!--    //select * from  tab_route_img i where i.rid=1;-->
+<!--    List<RouteImg> findAllImgByRid(int rid);-->
+    <select id="findAllImgByRid" resultType="routeImg" parameterType="int">
+        select * from  tab_route_img i where i.rid=#{rid};
+    </select>
+
+</mapper>

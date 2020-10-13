@@ -5,7 +5,7 @@
   Time: 15:54
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"  isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -25,42 +25,43 @@
     <script src="js/angular.min.js"></script>
     <!--导入jquery-->
     <script src="js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" >
-        function checkUserName(){
+    <script type="text/javascript">
+        function checkUserName() {
             //获取输入框的值
             var username = $("#username").val();
 
             //正则表达式  定义一个规则，执行test方法，符合规则返回true，否则返回false
 
-            var reg =  /^\w{8,20}$/ ;
+            var reg = /^\w{8,20}$/;
 
             var flag = reg.test(username); //判断
 
             //如果符合要求，设置输入框边框是正常，否则设置红色
 
-            if(flag){
-                $("#username").css("border","");
-            }else{
-                $("#username").css("border","1px solid red");
+            if (flag) {
+                $("#username").css("border", "");
+            } else {
+                $("#username").css("border", "1px solid red");
             }
             //alert(flag)
             return flag;
         }
 
-        function checkPassword(){
+        function checkPassword() {
             //判断密码输入框的值是否合法
             var username = $("#password").val();
-            var reg =  /^\w{8,20}$/ ;
+            var reg = /^\w{8,20}$/;
 
             var flag = reg.test(username); //判断
-            if(flag){
-                $("#password").css("border","");//无色框
-            }else{
-                $("#password").css("border","1px solid red");//红框
+            if (flag) {
+                $("#password").css("border", "");//无色框
+            } else {
+                $("#password").css("border", "1px solid red");//红框
             }
             //alert(flag)
             return flag;
         }
+
         $(function () {
             $("#errorMsg").html("");
             // 判断两个输入框架的是否格式正确
@@ -70,30 +71,30 @@
 
             $("#btn_login").click(function () {
                 //要求两个值正确，我们才做提交
-                if(checkUserName()&&checkPassword()){
+                if (checkUserName() && checkPassword()) {
                     var un = $("#username").val()
                     var pw = $("#password").val()
                     var check = $("#check").val()
                     //alert(un+pw)
                     //写提交
                     $.ajax({
-                        url:"loginServlet",
-                        async:true,
-                        data:$("#loginForm").serialize(),
-                        type:"post",
-                        dataType:"json",
-                        success:function (data) {
+                        url: "loginServlet",
+                        async: true,
+                        data: $("#loginForm").serialize(),
+                        type: "post",
+                        dataType: "json",
+                        success: function (data) {
                             // alert(data)  {"code":1,"data":"登录成功"}
-                            if(1 == data.code){
+                            if (1 == data.code) {
                                 //跳转到主页 index.jsp
                                 $("#errorMsg").html("");
-                                window.location="index.jsp"
-                            }else{
+                                window.location = "index.jsp"
+                            } else {
                                 //显示在界面上
                                 $("#errorMsg").html(data.data);
                             }
                         },
-                        error:function () {
+                        error: function () {
                             alert("服务器发生了错误")
                         }
                     });
@@ -104,14 +105,13 @@
         })
 
 
-
     </script>
 </head>
 
 <body>
 <!--引入头部-->
 <div id="header">
-    <%@include file="header.jsp"%>
+    <%@include file="header.jsp" %>
 </div>
 <!-- 头部 end -->
 <section id="login_wrap">
@@ -126,23 +126,24 @@
         <div class="login_inner">
 
             <!--登录错误提示消息-->
-            <div id="errorMsg" class="alert alert-danger" ></div>
+            <div id="errorMsg" class="alert alert-danger"></div>
             <form id="loginForm" action="" method="post" accept-charset="utf-8">
                 <input type="hidden" name="action" value="login"/>
                 <input id="username" name="username" type="text" placeholder="请输入账号" autocomplete="off">
                 <input id="password" name="password" type="text" placeholder="请输入密码" autocomplete="off">
                 <div class="verify">
-                    <input  id="check" name="check" type="text" placeholder="请输入验证码" autocomplete="off">
-                    <span><img src="${pageContext.request.contextPath}/checkCode" alt="" onclick="changeCheckCode(this)"></span>
+                    <input id="check" name="check" type="text" placeholder="请输入验证码" autocomplete="off">
+                    <span><img src="${pageContext.request.contextPath}/checkCode" alt=""
+                               onclick="changeCheckCode(this)"></span>
                     <script type="text/javascript">
                         //图片点击事件
                         function changeCheckCode(img) {
-                            img.src="${pageContext.request.contextPath}/checkCode?"+new Date().getTime();
+                            img.src = "${pageContext.request.contextPath}/checkCode?" + new Date().getTime();
                         }
                     </script>
                 </div>
 
-                <div class="submit_btn" >
+                <div class="submit_btn">
                     <button id="btn_login" type="button">登录</button>
                     <div class="auto_login">
                         <input type="checkbox" name="" class="checkbox">
@@ -156,7 +157,7 @@
 </section>
 <!--引入尾部-->
 <div id="footer">
-    <%@include file="footer.jsp"%>
+    <%@include file="footer.jsp" %>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.11.0.min.js"></script>

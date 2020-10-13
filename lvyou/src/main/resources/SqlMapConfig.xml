@@ -23,11 +23,14 @@
         </environment>
     </environments>
 <!--   一个mapper标签可以指定一个映射文件-->
-    <mappers>
+   <mappers>
         <mapper resource="UserDao.xml"/>
         <mapper resource="CategoryDao.xml"/>
         <mapper resource="RouteDao.xml"/>
         <mapper resource="SellerDao.xml"/>
         <mapper resource="RouteImgDao.xml"/>
     </mappers>
+    <!--<mappers>
+        <package name="com.smp.dao"/>
+    </mappers>-->
 </configuration>
