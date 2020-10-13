@@ -110,15 +110,15 @@
 </script>
 <div class="navitem">
     <ul class="nav" id="nav">
-                <li class="nav-active"><a href="index.jsp">首页</a></li>
-                <li><a href="route_list.jsp">门票</a></li>
-                <li><a href="route_list.jsp">酒店</a></li>
-                <li><a href="route_list.jsp">香港车票</a></li>
-                <li><a href="route_list.jsp">出境游</a></li>
-                <li><a href="route_list.jsp">国内游</a></li>
-                <li><a href="route_list.jsp">港澳游</a></li>
-                <li><a href="route_list.jsp">抱团定制</a></li>
-                <li><a href="route_list.jsp">全球自由行</a></li>
+                <li class="#"><a href="index.jsp">首页</a></li>
+                <li><a href="#">门票</a></li>
+                <li><a href="#">酒店</a></li>
+                <li><a href="#">香港车票</a></li>
+                <li><a href="#">出境游</a></li>
+                <li><a href="#">国内游</a></li>
+                <li><a href="#">港澳游</a></li>
+                <li><a href="#">抱团定制</a></li>
+                <li><a href="#">全球自由行</a></li>
                 <li><a href="favoriterank.jsp">收藏排行榜</a></li>
     </ul>
 </div>
