@@ -18,10 +18,11 @@ import java.util.List;
 @WebServlet("/categoryServlet")
 public class CategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         //访问redis 较快,但是第一次是没有数据的
         //访问service，获取json，将json保存到redis
         Jedis jedis = JedisUtil.getJedis();
@@ -36,18 +37,18 @@ public class CategoryServlet extends HttpServlet {
             //创建业务对象
             CategoryService categoryService = new CategoryService();
             //所有的分类
-            List<Category> categoryList=categoryService.findAll();
-            //显示在页面
+            List<Category> categoryList = categoryService.findAll();
+            //显示
             ResponseInfo info = new ResponseInfo();
-            //调用
             info.setCode(200);
             info.setData(categoryList);
             json = new ObjectMapper().writeValueAsString(info);
             //将数据保存到redis
-            jedis.set("category_list",json);
+            jedis.set("category_list", json);
             response.getWriter().println(json);
         }
         //关闭连接
         JedisUtil.close(jedis);
+
     }
 }
