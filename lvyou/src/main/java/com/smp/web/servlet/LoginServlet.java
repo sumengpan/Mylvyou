@@ -18,7 +18,7 @@ import java.util.Map;
 @WebServlet("/loginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         request.getSession().removeAttribute("CHECKCODE_SERVER");
         //比较check1 与 check2
         //相同表示验证码不正确，将提示信息写到页面的错误提示
-        if(check1 == null || !check1.equalsIgnoreCase(check2)){
+        if (check1 == null || !check1.equalsIgnoreCase(check2)) {
             //验证码不看大小写
             ResponseInfo responseInfo = new ResponseInfo();
             responseInfo.setCode(-4);
@@ -46,13 +46,12 @@ public class LoginServlet extends HttpServlet {
         }
 
 
-
         //获取请求参数
         Map<String, String[]> map = request.getParameterMap();
         User u = new User();
         try {
             //参1 javaBean 参2 map
-            BeanUtils.populate(u,map);//将map里面所有的参数赋值给javaBean
+            BeanUtils.populate(u, map);//将map里面所有的参数赋值给javaBean
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -64,22 +63,22 @@ public class LoginServlet extends HttpServlet {
         //响应给浏览器 ajax 是响应json给浏览器就可以
         ResponseInfo info = new ResponseInfo();
         info.setCode(code);
-        if(code == - 1){
+        if (code == -1) {
             info.setData("用户不存在");
-        }else  if(code ==  1){
+        } else if (code == 1) {
             info.setData("登录成功");
 
             //查找出用户数据
             User user = userService.findUserByName(u.getUsername());
             //保存到session中
-            request.getSession().setAttribute("user",user);
-        }else  if(code ==  -2){
+            request.getSession().setAttribute("user", user);
+        } else if (code == -2) {
             info.setData("账号密码出错");
-        }else  if(code ==  -3){
+        } else if (code == -3) {
             info.setData("账号未激活");
         }
         //转成json
-        String json =new ObjectMapper().writeValueAsString(info);
+        String json = new ObjectMapper().writeValueAsString(info);
         response.getWriter().println(json);
     }
 }

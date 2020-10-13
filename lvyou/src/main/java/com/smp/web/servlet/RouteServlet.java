@@ -13,12 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-
 @WebServlet("/routeServlet")
 public class RouteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request,response);
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +29,7 @@ public class RouteServlet extends HttpServlet {
         String pageSizeStr = request.getParameter("pageSize");
         int currentPage = 1;
         if (currentPageStr != null && currentPageStr.length() > 0) {
-            //"11"  "你好"
+            //"11"
             try {
                 currentPage = Integer.parseInt(currentPageStr);//11
             } catch (Exception e) {
@@ -50,7 +49,7 @@ public class RouteServlet extends HttpServlet {
         //处理参数
         RouteService routeService = new RouteService();
         //PageBean pb =  routeService.search("长沙",1,20);
-        PageBean pb =  routeService.search(keyword,currentPage,pageSize);
+        PageBean pb = routeService.search(keyword, currentPage, pageSize);
 
         //响应浏览器
         ResponseInfo info = new ResponseInfo();
@@ -60,15 +59,6 @@ public class RouteServlet extends HttpServlet {
         response.getWriter().println(json);
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 //@WebServlet("/routeServlet")
