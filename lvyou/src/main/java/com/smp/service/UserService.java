@@ -24,10 +24,10 @@ public class UserService {
         User u = userDao.findByName(user.getUsername());
         //比对数据库的账号密码
         if (u == null) {
-            return -1;//找不到jack
+            return -1;//找不到jackhello
         } else {
             //判断是否是激活的账户
-            if ('Y'== u.getStatus()) {
+            if ('Y' == u.getStatus()) {
                 //是激活用户
                 if (u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())) {
                     return 1;//提示登录成功
@@ -45,7 +45,7 @@ public class UserService {
         //判断 用户的账号是否存在
         User user2 = userDao.findByUserName(user.getUsername());
         //不存在，调用保存 返回 1
-        if(user2 == null){
+        if (user2 == null) {
             user.setStatus('N');//未激活
             String activeCode = UuidUtil.getUuid();
             user.setCode(activeCode);//激活
@@ -55,18 +55,19 @@ public class UserService {
             //参1 收件人
             //参2 内容
             //参3 标题
-            MailUtils.sendMail(user.getEmail(),"<a href='http://localhost:8080/lvyou_war_exploded/activeServlet?activeCode="+activeCode+"'>点击激活途牛旅游账户</a>","激活账户");
+            MailUtils.sendMail(user.getEmail(), "<a href='http://localhost:8080/lvyou_war_exploded/activeServlet?activeCode=" + activeCode + "'>点击激活途牛旅游账户</a>", "激活账户");
             return 1;
-        }else{
+        } else {
             //存在，返回-1
             return -1;
         }
 
     }
-        //激活邮箱
+
+    //激活邮箱
     public int active(String activeCode) {
         UserDao userDao = MySessionUtils2.getMapper(UserDao.class);
-        int code =  userDao.updateStatus(activeCode); //1 表示成功
+        int code = userDao.updateStatus(activeCode); //1 表示成功
         MySessionUtils2.commitAndClose();
         return code;
     }

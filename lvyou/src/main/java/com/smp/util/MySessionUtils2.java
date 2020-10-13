@@ -9,8 +9,9 @@ import java.io.InputStream;
 //Session工具类
 public class MySessionUtils2 {
     private static SqlSessionFactory sessionFactory;
+
     //static 静态代码，在类加载的时候执行一次，且只执行一次
-    static{
+    static {
 //  》1 创建SqlSessionFactoryBuilder对象
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
 // 》2 创建SqlSessionFactory对象
@@ -20,7 +21,7 @@ public class MySessionUtils2 {
     }
 
     //A: 定义一个ThreadLocal集合，本质是Map<Thread,Object> map
-    private   static ThreadLocal<SqlSession> map = new ThreadLocal<SqlSession>();
+    private static ThreadLocal<SqlSession> map = new ThreadLocal<SqlSession>();
 
     public static SqlSession getSession() {
 
@@ -65,6 +66,7 @@ public class MySessionUtils2 {
         }
     }
 
+    //A依赖B,移除B,A报错，耦合
     public static <T> T getMapper(Class clz) {
         return (T) getSession().getMapper(clz);
     }

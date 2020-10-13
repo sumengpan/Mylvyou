@@ -33,7 +33,7 @@
                 <a>|</a>
             </c:if>
             <a href="register.jsp">注册</a>
-            <a href="myfavorite.html" class="collection">我的收藏</a>
+            <a href="myfavorite.jsp" class="collection">我的收藏</a>
             <a href="${pageContext.request.contextPath}/loginOutServlet">退出</a>
         </div>
     </div>
