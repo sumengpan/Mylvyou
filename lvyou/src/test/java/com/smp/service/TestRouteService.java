@@ -19,7 +19,7 @@ public class TestRouteService {
         //业务方法
         //不可返回结果使用List<Route>
         //分页中需要有，总记录数，每页记录数，总页数，当前页
-        PageBean pageBean = routeService.search("宁夏", 1, 20);
+        PageBean pageBean = routeService.search("长沙", 1, 20);
         //显示
         System.out.println(pageBean);
     }
