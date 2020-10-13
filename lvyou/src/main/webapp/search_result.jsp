@@ -15,25 +15,20 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" href="css/search.css">
     <script src="js/jquery-3.3.1.js"></script>
-    <%--    <script src="js/getParameter.js"></script>--%>
-    <%--    <script src="js/myfucntions.js"></script>--%>
     <script type="text/javascript">
-        <
-        script
-        type = "text/javascript" >
-            //页面加载完成
-            $(function () {
-                //http://localhost:8080/lvyou_war_exploded/search_result.jsp?keyword=长沙
-                //location表示整个地址  location.search指 ?keyword=长沙
-                //?keyword=%E9%95%BF%E6%B2%99  [?keyword,%E9%95%BF%E6%B2%99]
-                var array = location.search.split('=')
-                //长沙  -》 %E9%95%BF%E6%B2%99
-                var keyword = array[1]
-                //解码
-                keyword = decodeURI(keyword)
-                //加载数据
-                load(keyword, 1, 20)
-            })
+        //页面加载完成
+        $(function () {
+            //http://localhost:8080/lvyou_war_exploded/search_result.jsp?keyword=长沙
+            //location表示整个地址  location.search指 ?keyword=长沙
+            //?keyword=%E9%95%BF%E6%B2%99  [?keyword,%E9%95%BF%E6%B2%99]
+            var array = location.search.split('=')
+            //长沙  -》 %E9%95%BF%E6%B2%99
+            var keyword = array[1]
+            //解码
+            keyword = decodeURI(keyword)
+            //加载数据
+            load(keyword, 1, 20)
+        })
 
         function load(keyword, currentPage, pageSize) {
             //http://localhost:8080/lvyou_war_exploded/routeServlet?keyword=%E9%95%BF%E6%B2%99&currentPage=1&pageSize=20
@@ -225,7 +220,7 @@
     </div>
 </div>
 
-<!--引入尾部-->
+<!--引入头部-->
 <div id="footer">
     <%@ include file="footer.jsp" %>
 </div>

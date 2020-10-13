@@ -13,10 +13,14 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/ranking-list.css">
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/getParameter.js"></script>
+    <script src="js/myfucntions.js"></script>
 </head>
 <body>
 <!--引入头部-->
-<div id="header"></div>
+<div id="header">
+    <%@include file="header.jsp"%>
+</div>
 <div class="contant">
     <div class="shaixuan">
         <span>线路名称</span>
@@ -105,16 +109,16 @@
         <ul>
             <li><a href="">首页</a></li>
             <li class="threeword"><a href="#">上一页</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-            <li><a href="#">10</a></li>
+            <li><a href="index.jsp">1</a></li>
+            <li><a href="index.jsp">2</a></li>
+            <li><a href="index.jsp">3</a></li>
+            <li><a href="index.jsp">4</a></li>
+            <li><a href="index.jsp">5</a></li>
+            <li><a href="index.jsp">6</a></li>
+            <li><a href="index.jsp">7</a></li>
+            <li><a href="index.jsp">8</a></li>
+            <li><a href="index.jsp">9</a></li>
+            <li><a href="index.jsp">10</a></li>
             <li class="threeword"><a href="javascript:;">下一页</a></li>
             <li class="threeword"><a href="javascript:;">末页</a></li>
         </ul>
@@ -122,7 +126,9 @@
 </div>
 
 <!--导入底部-->
-<div id="footer"></div>
+<div id="footer">
+    <%@include file="footer.jsp"%>
+</div>
 <!--导入布局js，共享header和footer-->
 <script type="text/javascript" src="js/include.js"></script>
 </body>
