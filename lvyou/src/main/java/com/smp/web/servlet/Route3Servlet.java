@@ -15,7 +15,8 @@ import java.io.IOException;
 @WebServlet("/route/*")
 public class Route3Servlet extends BaseServlet {
     //  /route/search
-    public void search(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void search(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
         //接收请求，获取参数
         String keyword = request.getParameter("keyword");

@@ -41,7 +41,7 @@ public class BaseServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-    //一行代码将对象转成json
+    //将对象转成json
     public String toJson(int code,Object data) {
         ResponseInfo info = new ResponseInfo();
         info.setCode(200);
